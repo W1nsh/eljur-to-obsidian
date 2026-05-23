@@ -3,12 +3,12 @@ from typing import Any
 
 from config.user.config_parser import ConfigParser
 from config.user.config_writer import ConfigWriter
-from config.user.config import Config, UserEljurConfig, UserDataConfig
+from config.user.config import UserEljurConfig, UserDataConfig
 
 
 class ConfigManager:
 	"""
-	Class for managing config data.
+	Class for managing and work with config data.
 
 	Attributes:
 		parser (ConfigParser):
@@ -48,26 +48,11 @@ class ConfigManager:
 		)
 
 
-	def get_config(
-		self,
-	) -> Config:
-		"""
-		Gets config.
-
-		Gets config from `self.config` and returns it.
-		Use only after calling `load_config` method.
-
-		Returns:
-			Config: configuration dataclass.
-		"""
-		return self.config
-
-
 	def write_env(
 		self,
 	) -> None:
 		"""
-		Writes data to the .env config file.
+		Generates and writes data to the .env config file.
 		"""
 		content = self._generate_env(
 			self.config.user_eljur,
@@ -82,7 +67,7 @@ class ConfigManager:
 		self,
 	) -> None:
 		"""
-		Writes data to the user config file.
+		Generates and writes data to the user config file.
 		"""
 		config_content = self._generate_config_content(
 			self.config.user_data,

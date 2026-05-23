@@ -1,0 +1,77 @@
+{
+    "response": {
+        "state": 200,
+        "error": null,
+        "result": {
+            "students": {
+                "413": {
+                    "name": "413",
+                    "title": "Панышев Антон",
+                    "days": {
+                        "20260506": {
+                            "name": "20260506",
+                            "title": "Среда",
+                            "items": {
+                                "Русский язык": {
+                                    "homework": {
+                                        "1": {
+                                            "id": 1,
+                                            "individual": false,
+                                            "value": "Сочинение 13.3 от 29.04"
+                                        },
+                                        "2": {
+                                            "id": 2,
+                                            "individual": false,
+                                            "value": "Сочинение 13.3 от 29.04"
+                                        }
+                                    },
+                                    "name": "Русский язык"
+                                },
+                                "Физика": {
+                                    "homework": {
+                                        "1": {
+                                            "id": 1,
+                                            "individual": false,
+                                            "value": "Делаем Инд. задания"
+                                        },
+                                        "2": {
+                                            "id": 2,
+                                            "individual": true,
+                                            "value": "https://phys-oge.sdamgia.ru/test?id=4954594&amp;nt=True&amp;pub=False\n\nрешаем в тетради"
+                                        }
+                                    },
+                                    "name": "Физика"
+                                },
+                                "Алгебра": {
+                                    "homework": {
+                                        "1": {
+                                            "id": 1,
+                                            "individual": false,
+                                            "value": "Без задания"
+                                        },
+                                        "2": {
+                                            "id": 2,
+                                            "individual": false,
+                                            "value": "Вариант 30"
+                                        }
+                                    },
+                                    "name": "Алгебра"
+                                },
+                                "Геометрия": {
+                                    "homework": {
+                                        "1": {
+                                            "id": 1,
+                                            "individual": false,
+                                            "value": "Без задания"
+                                        }
+                                    },
+                                    "name": "Геометрия"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

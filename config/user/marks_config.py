@@ -5,7 +5,7 @@ from pathlib import Path
 @dataclass
 class MarksConfig:
 	"""
-	Dataclass for storing parameters about marks.
+	Dataclass for storing all user parameters about marks.
 
 	Attributes:
 		need (bool):

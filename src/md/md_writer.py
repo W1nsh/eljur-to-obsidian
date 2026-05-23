@@ -1,5 +1,5 @@
 from src.md.md_point_node import MdPointNode
-from src.school.subject_list import SubjectList
+from src.school.subject import Subject
 
 
 class MdWriter:
@@ -18,10 +18,10 @@ class MdWriter:
 
 	def generate_subject_ast(
 		self,
-		subject_list: SubjectList
+		subject_list: list[Subject]
 	) -> list[MdPointNode]:
 		main_points = []
-		for subject in subject_list.subject_list:
+		for subject in subject_list:
 			subject_text = subject.name
 			subject_indent = 0
 			subject_point = MdPointNode(

@@ -1,25 +1,54 @@
 class MarkList:
-	def __init__(self, marks: list[int]) -> None:
+	"""
+	
+	"""
+
+	def __init__(
+		self,
+		marks: list[int],
+	) -> None:
+		"""
+		
+		"""
 		self.marks = marks
 
 
-	def append_mark(self, mark: int) -> None:
-		self.marks.append(mark)
+	def average(
+		self,
+		marks: list[int],
+	) -> float:
+		"""
+		Calculates average value of the marks.
 
+		Args:
+			marks (list[int]): List of the marks.
+				If marks if not transferred uses copy self.marks.
 
-	def set_marks(self, marks: list[int]) -> None:
-		self.marks = marks
-
-
-	def average(self, marks: list[int] | None = None) -> float:
+		Returns:
+			float: Average value.
+		"""
 		if not marks:
 			marks = self.marks.copy()
 		avg = sum(marks) / len(marks)
 		return avg
 	
 
-	def count_concrete_marks_for_desired(self, concrete_mark: int , desired_mark: int) -> int:
-		if concrete_mark < desired_mark:
+	def count_marks_for_desired(
+		self,
+		mark: int,
+		desired_mark: int,
+	) -> int:
+		"""
+		Calculate count of the concrete mark to for desired marks.
+
+		Args:
+			mark (int): Concrete mark.
+			desired_mark (int): Desired mark.
+
+		Returns:
+			int: Count of the concrete marks.
+		"""
+		if mark < desired_mark:
 			return 0
 		count = 0
 		marks = self.marks.copy()
@@ -27,23 +56,35 @@ class MarkList:
 		min_need_mark = desired_mark - 0.5
 		while avg < min_need_mark:
 			count += 1
-			marks.append(concrete_mark)
+			marks.append(mark)
 			avg = self.average(marks)
 		return count
 	
 
-	def count_neutral_marks_for_current_mark(self, concrete_mark: int) -> int:
-		count = 0
+	def count_neutral_for_current(
+		self,
+		mark: int,
+	) -> int:
+		"""
+		Calculates count of the concrete mark
+		without affecting to the current mark.
+
+		Args:
+			mark (int): Concrete mark.
+		
+		Returns:
+			int: Count of the concrete mark.
+		"""
+		count = -1
 		marks = self.marks.copy()
 		avg = self.average(marks)
 		current_mark = round(avg)
 		round_avg = round(avg)
-		if concrete_mark == current_mark:
+		if mark == current_mark:
 			return 999
 		while round_avg == current_mark:
 			count += 1
-			marks.append(concrete_mark)
+			marks.append(mark)
 			avg = self.average(marks)
 			round_avg = round(avg)
-		count -= 1
 		return count

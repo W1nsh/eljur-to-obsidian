@@ -5,13 +5,17 @@ from pathlib import Path
 @dataclass
 class HomeworksConfig:
 	"""
-	Dataclass for storing parameters about homework.
+	Dataclass for storing all user parameters about marks.
 
 	Attributes:
-		need (bool): The need to display information about homeworks to the user.
-		path (Path): Path to the file for storing information about the user's homeworks.
-		from_date (str): Start date in 'dd.mm.yyyy' format for a parsing homeworks in the given date range.
-		to_date (str): End date in 'dd.mm.yyyy' format for a parsing homeworks in the given date range.
+		need (bool):
+			The need to display information about homeworks to the user.
+		path (Path):
+			Path to the file for storing information about the user's homeworks.
+		from_date (str):
+			Start date in 'dd.mm.yyyy' format for a parsing homeworks in the given date range.
+		to_date (str):
+			End date in 'dd.mm.yyyy' format for a parsing homeworks in the given date range.
 	"""
 	need: bool
 	path: Path

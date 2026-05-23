@@ -1,0 +1,99 @@
+{
+    "response": {
+        "state": 200,
+        "error": null,
+        "result": {
+            "roles": [
+                "parent"
+            ],
+            "relations": {
+                "students": {
+                    "413": {
+                        "rules": [
+                            "getassessments",
+                            "getdiary",
+                            "getfinalassessments",
+                            "gethomework",
+                            "getperiods",
+                            "getschedule"
+                        ],
+                        "rel": "child",
+                        "name": "413",
+                        "title": "Панышев Антон",
+                        "lastname": "Панышев",
+                        "firstname": "Антон",
+                        "gender": "male",
+                        "class": 9,
+                        "parallel": 9,
+                        "city": "Тюмень",
+                        "department_type": "EDU"
+                    }
+                },
+                "groups": {
+                    "9": {
+                        "rules": [
+                            "getschedule",
+                            "gethomework"
+                        ],
+                        "rel": "homeclass",
+                        "name": "9",
+                        "parallel": 9,
+                        "balls": 5,
+                        "hometeacher_id": "569",
+                        "hometeacher_name": "Воронина  Анна Сергеевна",
+                        "hometeacher_lastname": "Воронина ",
+                        "hometeacher_firstname": "Анна",
+                        "hometeacher_middlename": "Сергеевна"
+                    }
+                },
+                "schools": [
+                    {
+                        "number": "familyclasses",
+                        "title": "Курс на результат",
+                        "title_full": "Курс на результат",
+                        "inn": "",
+                        "kpp": ""
+                    }
+                ]
+            },
+            "allowedAds": [
+                "eljur_menu"
+            ],
+            "allowedSections": [
+                "diary",
+                "marks",
+                "finalmarks",
+                "schedule",
+                "messages"
+            ],
+            "messageSignature": "--\nС уважением,\nЕлена Сергеевна Филистеева",
+            "uploadFileUrl": "https://storage13.eljur.ru/storage/upload?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJlbGp1cjpkb21haW46ZmFtaWx5Y2xhc3NlcyIsImF1ZCI6ImVqOnN0b3IiLCJqdGkiOiJ2MjoxNzc5NTU3MDM4LjM1MjU6MjAxMDczMjg1OSIsIm5iZiI6MTc3OTU1NzAzOCwiaWF0IjoxNzc5NTU3MDM4LCJleHAiOjE3Nzk1Nzg2MzgsInVpZCI6IjQxNyJ9.g61K0YPKMxhkIxRe42ajuX2pWZlMMgsiK_vdeskjo-IMutyQfrjmUb8L_dkt-zEQomFDdErrTHA8byXao59XZybTDQIMQrQujTVH5sfVJMmP0epeh_XTE6O21xicWe9u37WF9JsA19nRZJ2p69C0S4nhyTPPngRJZ0txPahh4b3eDy_x1z2E-4KYSFFMswhhf3C84SvRya0NRwDTC5rChULxdMKof1xj2nnBA2Eq8ypqajzDY7e9atDeKHjxSjO77Itp-ftXxBkUX17lZa71f2Lc5PrFvsYHM1km2im5t4B6sFBz2to0ChGUeU1qoYtMgEG3BPYxtMm_Z_ZSuuhikw&domain=familyclasses",
+            "supportEmailSchool": "",
+            "supportHelpdeskSchoolEmployee": "",
+            "supportPhone": "+7 495 105-92-53",
+            "supportEmail": "eljur@help-obr.ru",
+            "supportHelpdesk": "https://eljur.ru/support/?domain=familyclasses&email=filis-elena%40mail.ru&login=filis-elena%40mail.ru&who_are_you=%D0%A0%D0%BE%D0%B4%D0%B8%D1%82%D0%B5%D0%BB%D1%8C",
+            "supportDescription": "",
+            "name": "417",
+            "age": 0,
+            "id": "417",
+            "vuid": "265117#417",
+            "id_hash": "e32c346678a2db418378dbb64377af3a",
+            "title": "Филистеева Елена Сергеевна",
+            "vendor": "familyclasses",
+            "vendor_id": 265117,
+            "guid": "00000026-5117-0000-0000-000000000417",
+            "original_guid": null,
+            "lastname": "Филистеева",
+            "firstname": "Елена",
+            "middlename": "Сергеевна",
+            "gender": "female",
+            "email": "filis-elena@mail.ru",
+            "email_confirmed": true,
+            "region": "Тюменская область",
+            "regionCode": "7200000000000",
+            "city": "Тюмень",
+            "rt_licey_school_end_date": false
+        }
+    }
+}

@@ -1,6 +1,6 @@
 from pathlib import Path
 
-from src.app import App
+# from src.app import App
 
 
 BASE_DIR = Path(__file__).parent
