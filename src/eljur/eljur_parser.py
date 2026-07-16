@@ -1,7 +1,5 @@
 import requests
-import json
 from typing import Any
-from pathlib import Path
 
 
 class EljurParser:
@@ -21,16 +19,16 @@ class EljurParser:
 
 	def __init__(
 		self,
+		encoding: str,
 		devkey: str,
 		vendor: str,
 		school_class: str,
-		encoding: str,
 		login: str | None = None,
 		password: str | None = None,
 		auth_token: str | None = None,
 	) -> None:
 		"""
-		Initializing the EljurParser object.
+		Initializes EljurParser object.
 
 		Args:
 			devkey (str): The developer key for API access.
@@ -51,25 +49,6 @@ class EljurParser:
 		self._auth_token = auth_token
 		self._session = requests.Session()
 		self._base_url = f'https://{self._vendor}.eljur.ru/api'
-
-
-	def write_json(
-		self,
-		response: dict[str, Any],
-		json_path: Path,
-	) -> None:
-		"""
-		Writes the response from the API to the JSON file.
-
-		Args:
-			response (dict[str, Any]): Dict for writing.
-			json_path (Path): The path to the JSON file.
-		"""
-		response_str = json.dumps(response, ensure_ascii=False, indent=4)
-		json_path.write_text(
-			response_str,
-			encoding=self._encoding,
-		)
 
 
 	def authenticate(
@@ -115,42 +94,42 @@ class EljurParser:
 			return response
 
 
-	def get_schedule(
-		self,
-		from_date: str,
-		to_date: str,
-		student: str | None = None,
-		school_class: bool = False,
-		rings: bool = False,
-	) -> dict[str, Any] | None:
-		"""
-		Gets schedule for the given date range.
+	# def get_schedule(
+	# 	self,
+	# 	from_date: str,
+	# 	to_date: str,
+	# 	student: str | None = None,
+	# 	school_class: bool = False,
+	# 	rings: bool = False,
+	# ) -> dict[str, Any] | None:
+	# 	"""
+	# 	Gets schedule for the given date range.
 
-		Class has larger priority than students.
-		If Students is empty requests schedule for all children of user, if user is parent.
-		If user is student, he will get schedule for himself.
+	# 	Class has larger priority than students.
+	# 	If Students is empty requests schedule for all children of user, if user is parent.
+	# 	If user is student, he will get schedule for himself.
 
-		Args:
-			from_date (str): The start date of the schedule in the format 'yyyymmdd'.
-			to_date (str): The end date of the schedule in the format 'yyyymmdd'.
-			student (Optional[str]): The ID of the student to get the schedule for. Defaults to None.
-			school_class (bool): Whether to get the schedule for the whole class. Defaults to False.
-			rings (bool): Whether to include rings information to the schedule. Defaults to False.
+	# 	Args:
+	# 		from_date (str): The start date of the schedule in the format 'yyyymmdd'.
+	# 		to_date (str): The end date of the schedule in the format 'yyyymmdd'.
+	# 		student (Optional[str]): The ID of the student to get the schedule for. Defaults to None.
+	# 		school_class (bool): Whether to get the schedule for the whole class. Defaults to False.
+	# 		rings (bool): Whether to include rings information to the schedule. Defaults to False.
 
-		Returns:
-			dict[str, Any] | None: dictionary if getting schedule is successful, None otherwise.
-		"""
-		params = {
-			'days': f'{from_date}-{to_date}',
-			'rings': rings,
-		}
-		if school_class:
-			params['class'] = self._school_class
-		elif student:
-			params['students'] = student
-		response = self._get_request('getschedule', params)
-		if response:
-			return response
+	# 	Returns:
+	# 		dict[str, Any] | None: dictionary if getting schedule is successful, None otherwise.
+	# 	"""
+	# 	params = {
+	# 		'days': f'{from_date}-{to_date}',
+	# 		'rings': rings,
+	# 	}
+	# 	if school_class:
+	# 		params['class'] = self._school_class
+	# 	elif student:
+	# 		params['students'] = student
+	# 	response = self._get_request('getschedule', params)
+	# 	if response:
+	# 		return response
 		
 
 	def get_homeworks(
@@ -188,34 +167,34 @@ class EljurParser:
 			return response
 
 
-	def get_assessments(
-		self,
-		from_date: str,
-		to_date: str,
-		student: str | None = None,
-	) -> dict[str, Any] | None:
-		"""
-		Gets assessments for the given date range.
+	# def get_assessments(
+	# 	self,
+	# 	from_date: str,
+	# 	to_date: str,
+	# 	student: str | None = None,
+	# ) -> dict[str, Any] | None:
+	# 	"""
+	# 	Gets assessments for the given date range.
 
-		If Students is empty requests assessments for all children of user, if user is parent.
-		If user is student, he will get assessments for himself.
+	# 	If Students is empty requests assessments for all children of user, if user is parent.
+	# 	If user is student, he will get assessments for himself.
 
-		Args:
-			from_date (str): The start date of the assessments in the format 'yyyymmdd'.
-			to_date (str): The end date of the assessments in the format 'yyyymmdd'.
-			student (Optional[str]): The ID of the student to get the assessments for. Defaults to None.
+	# 	Args:
+	# 		from_date (str): The start date of the assessments in the format 'yyyymmdd'.
+	# 		to_date (str): The end date of the assessments in the format 'yyyymmdd'.
+	# 		student (Optional[str]): The ID of the student to get the assessments for. Defaults to None.
 
-		Returns:
-			dict[str, Any] | None: dictionary if getting assessments is successful, None otherwise.
-		"""
-		params = {
-			'days': f'{from_date}-{to_date}',
-		}
-		if student:
-			params['students'] = student
-		response = self._get_request('getassessments', params)
-		if response:
-			return response
+	# 	Returns:
+	# 		dict[str, Any] | None: dictionary if getting assessments is successful, None otherwise.
+	# 	"""
+	# 	params = {
+	# 		'days': f'{from_date}-{to_date}',
+	# 	}
+	# 	if student:
+	# 		params['students'] = student
+	# 	response = self._get_request('getassessments', params)
+	# 	if response:
+	# 		return response
 
 
 	def get_marks(
@@ -243,43 +222,43 @@ class EljurParser:
 		}
 		if student:
 			params['students'] = student
-		response = self._get_request('newgetmarks', params)
+		response = self._get_request('getmarks', params)
 		if response:
 			return response
 
 
-	def get_diary(
-		self,
-		from_date: str,
-		to_date: str,
-		student: str | None = None,
-		rings: bool = False,
-	) -> dict[str, Any] | None:
-		"""
-		Gets diary information (schedule, homework, marks) for the given date range.
+	# def get_diary(
+	# 	self,
+	# 	from_date: str,
+	# 	to_date: str,
+	# 	student: str | None = None,
+	# 	rings: bool = False,
+	# ) -> dict[str, Any] | None:
+	# 	"""
+	# 	Gets diary information (schedule, homework, marks) for the given date range.
 
-		Result of this method is combination of get_schedule, get_homework and get_assessments methods.
-		If Students is empty requests diary for all children of user, if user is parent.
-		If user is student, he will get diary for himself.
+	# 	Result of this method is combination of get_schedule, get_homework and get_assessments methods.
+	# 	If Students is empty requests diary for all children of user, if user is parent.
+	# 	If user is student, he will get diary for himself.
 
-		Args:
-			from_date (str): The start date of the diary in the format 'yyyymmdd'.
-			to_date (str): The end date of the diary in the format 'yyyymmdd'.
-			student (Optional[str]): The ID of the student to get the diary for. Defaults to None.
-			rings (bool): Whether to include rings information to the diary. Defaults to False.
+	# 	Args:
+	# 		from_date (str): The start date of the diary in the format 'yyyymmdd'.
+	# 		to_date (str): The end date of the diary in the format 'yyyymmdd'.
+	# 		student (Optional[str]): The ID of the student to get the diary for. Defaults to None.
+	# 		rings (bool): Whether to include rings information to the diary. Defaults to False.
 
-		Returns:
-			dict[str, Any] | None: dictionary if getting diary is successful, None otherwise.
-		"""
-		params = {
-			'days': f'{from_date}-{to_date}',
-			'rings': rings,
-		}
-		if student:
-			params['students'] = student
-		response = self._get_request('newgetdiary', params)
-		if response:
-			return response
+	# 	Returns:
+	# 		dict[str, Any] | None: dictionary if getting diary is successful, None otherwise.
+	# 	"""
+	# 	params = {
+	# 		'days': f'{from_date}-{to_date}',
+	# 		'rings': rings,
+	# 	}
+	# 	if student:
+	# 		params['students'] = student
+	# 	response = self._get_request('getdiary', params)
+	# 	if response:
+	# 		return response
 		
 
 	def get_periods(
@@ -302,7 +281,9 @@ class EljurParser:
 			show_disabled (bool): Whether to include information about the not occurred periods. Defaults to False
 
 		Returns:
-			dict[str, Any] | None: dictionary if getting periods is successful, None otherwise.
+			dict[str, Any] | None: 
+				Dictionary if getting periods is successful.
+				None otherwise.
 		"""
 		params = {
 			'students': student,
@@ -318,7 +299,7 @@ class EljurParser:
 		self,
 	) -> str | None:
 		"""
-		Returns the authentication token for API access.
+		Returns the authentication token.
 
 		Returns:
 			str: The authentication token.
@@ -350,21 +331,14 @@ class EljurParser:
 		}
 		if unique_params:
 			params.update(unique_params)
-		try:
-			response = self._session.get(
-				url,
-				params=params,
-				timeout=30,
-			)
-			response.raise_for_status()
-			json_response = response.json()
-			return json_response
-		except requests.HTTPError as e:
-			print(f'HTTP Error: {e}')
-		except requests.RequestException as e:
-			print(f'Request Exception: {e}')
-		except json.JSONDecodeError as e:
-			print(f'JSON Decode Error: {e}')
+		response = self._session.get(
+			url,
+			params=params,
+			timeout=30,
+		)
+		response.raise_for_status()
+		json_response = response.json()
+		return json_response
 
 
 	def _post_request(
@@ -380,21 +354,16 @@ class EljurParser:
 			data (dict[str, Any]): The data to be sent in the POST request.
 		
 		Returns:
-			dict[str, Any] | None: The JSON response from the API if the request is successful, None otherwise.
+			dict[str, Any] | None:
+				The JSON response from the API if the request is successful.
+				None otherwise.
 		"""
 		url = f'{self._base_url}/{url_endpoint}'
-		try:
-			response = self._session.post(
-				url,
-				data=data,
-				timeout=30,
-			)
-			response.raise_for_status()
-			json_response = response.json()
-			return json_response
-		except requests.HTTPError as e:
-			print(f'HTTP Error: {e}')
-		except requests.RequestException as e:
-			print(f'Request Exception: {e}')
-		except json.JSONDecodeError as e:
-			print(f'JSON Decode Error: {e}')
+		response = self._session.post(
+			url,
+			data=data,
+			timeout=30,
+		)
+		response.raise_for_status()
+		json_response = response.json()
+		return json_response

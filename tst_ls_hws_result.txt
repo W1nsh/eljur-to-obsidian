@@ -1,0 +1,83 @@
+Subjects:
+├── Алгебра
+│   ├── desired_mark: None
+│   ├── homeworks:
+│   │   ├── 06.05.2026 — Без задания
+│   │   └── 06.05.2026 — Вариант 30
+│   └── marks: MarkList
+│
+├── Англ. яз.
+│   ├── desired_mark: None
+│   ├── homeworks: []
+│   └── marks: MarkList
+│
+├── Биология
+│   ├── desired_mark: None
+│   ├── homeworks: []
+│   └── marks: MarkList
+│
+├── География
+│   ├── desired_mark: None
+│   ├── homeworks: []
+│   └── marks: MarkList
+│
+├── Геометрия
+│   ├── desired_mark: None
+│   ├── homeworks:
+│   │   └── 06.05.2026 — Без задания
+│   └── marks: MarkList
+│
+├── Информатика
+│   ├── desired_mark: None
+│   ├── homeworks: []
+│   └── marks: MarkList
+│
+├── История
+│   ├── desired_mark: None
+│   ├── homeworks: []
+│   └── marks: MarkList
+│
+├── Литература
+│   ├── desired_mark: None
+│   ├── homeworks: []
+│   └── marks: MarkList
+│
+├── Математика
+│   ├── desired_mark: None
+│   ├── homeworks: []
+│   └── marks: MarkList
+│
+├── Обществознание
+│   ├── desired_mark: None
+│   ├── homeworks: []
+│   └── marks: MarkList
+│
+├── Программирование
+│   ├── desired_mark: None
+│   ├── homeworks: []
+│   └── marks: MarkList
+│
+├── Разговорный английский
+│   ├── desired_mark: None
+│   ├── homeworks: []
+│   └── marks: MarkList
+│
+├── Русский язык
+│   ├── desired_mark: None
+│   ├── homeworks:
+│   │   ├── 06.05.2026 — Сочинение 13.3 от 29.04
+│   │   └── 06.05.2026 — Сочинение 13.3 от 29.04
+│   └── marks: MarkList
+│
+├── Физика
+│   ├── desired_mark: None
+│   ├── homeworks:
+│   │   ├── 06.05.2026 — Делаем Инд. задания
+│   │   └── 06.05.2026 — https://phys-oge.sdamgia.ru/test?id=4954594
+│   │       решаем в тетради
+│   └── marks: MarkList
+│
+└── Химия
+    ├── desired_mark: None
+    ├── homeworks: []
+    └── marks: MarkList

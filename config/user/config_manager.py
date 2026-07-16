@@ -1,47 +1,133 @@
 from pathlib import Path
+from typing import Any
 
 from config.user.config_parser import ConfigParser
 from config.user.config_writer import ConfigWriter
-from config.user.config import Config
+from config.user.config import UserEljurConfig, UserDataConfig
 
 
 class ConfigManager:
+	"""
+	Class for managing and work with config data.
+
+	Attributes:
+		parser (ConfigParser):
+			Config parser for loading data from config files.
+		writer (ConfigWriter):
+			Config writer for writing data to config files.
+		config (Config): Configuration dataclass.
+		_encoding (str): Encoding for reading and writing files.
+	"""
+
 	def __init__(
 		self,
 		base_dir: Path,
-		paths_file: Path,
+		paths_path: Path,
 		encoding: str,
 	) -> None:
-		self._base_dir = base_dir
-		self._paths_file = paths_file
+		"""
+		Initializes ConfigManager object.
+
+		Loads Config during initialization.
+
+		Args:
+			base_dir (Path): Base directory of the project.
+			paths_path (Path): Path to the file with technical paths.
+			encoding (str): Encofing for reading and writing files.
+		"""
 		self._encoding = encoding
-		self.config_parser = ConfigParser(
-			base_dir,
-			paths_file,
+		self.parser = ConfigParser(
 			encoding,
 		)
-		self.config_writer = ConfigWriter(
+		self.writer = ConfigWriter(
 			encoding,
-			)
+		)
+		self.config = self.parser.load_config(
+			base_dir=base_dir,
+			paths_path=paths_path,
+		)
 
 
-	def load_config(
+	def write_env(
 		self,
-	) -> Config:
+	) -> None:
 		"""
-		Load config.
+		Generates and writes data to the .env config file.
+		"""
+		content = self._generate_env(
+			self.config.user_eljur,
+		)
+		self.writer.write_env(
+			self.config.paths.settings.env,
+			content,
+		)
 
-		Load config, store it in `self._config`, and return it.
+
+	def write_config(
+		self,
+	) -> None:
+		"""
+		Generates and writes data to the user config file.
+		"""
+		config_content = self._generate_config_content(
+			self.config.user_data,
+		)
+		self.writer.write_config(
+			self.config.paths.settings.config,
+			config_content,
+		)
+
+
+	def _generate_config_content(
+		self,
+		user_data_config: UserDataConfig,
+	) -> dict[str, Any]:
+		"""
+		Generates content for the user config file.
+
+		Args:
+			user_data_config (UserDataConfig):
+				User data configuration.
 
 		Returns:
-			Config: configuration dataclass.
+			dict[str, Any]: Content for the user config file.
 		"""
-		paths = self.config_parser.load_paths()
-		user_config = self.config_parser.load_user_config() # add validate to all parameters
-		user_eljur_config = self.config_parser.load_user_eljur_config() # add validate to exists
-		config = Config(
-			paths,
-			user_config,
-			user_eljur_config,
-		)
-		return config
+		return {
+			"marks": {
+				"need": user_data_config.marks.need,
+				"path": user_data_config.marks.path.as_posix(),
+				"from_date": user_data_config.marks.from_date,
+				"to_date": user_data_config.marks.to_date,
+			},
+			"homeworks": {
+				"need": user_data_config.homeworks.need,
+				"path": user_data_config.homeworks.path.as_posix(),
+				"from_date": user_data_config.homeworks.from_date,
+				"to_date": user_data_config.homeworks.to_date,
+			},
+		}
+
+
+	def _generate_env(
+		self,
+		user_eljur_config: UserEljurConfig,
+	) -> str:
+		"""
+		Generates content for the .env config file.
+
+		Args:
+			user_eljur_config (UserEljurConfig):
+				User Eljur configuration.
+		
+		Returns:
+			str: Content for the .env config file.
+				Contains data for logging in Eljur.
+		"""
+		content = ''
+		content += f'ELJUR_LOGIN={user_eljur_config.login}\n'
+		content += f'ELJUR_PASSWORD={user_eljur_config.password}\n'
+		content += f'ELJUR_SCHOOL_CLASS={user_eljur_config.school_class}\n'
+		content += f'ELJUR_VENDOR={user_eljur_config.vendor}\n'
+		content += f'ELJUR_DEVKEY={user_eljur_config.devkey}\n'
+		content += f'ELJUR_AUTH_TOKEN={user_eljur_config.auth_token}\n'
+		return content

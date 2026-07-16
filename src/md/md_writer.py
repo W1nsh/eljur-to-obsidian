@@ -1,10 +1,10 @@
 from src.md.md_point_node import MdPointNode
-from src.school.subject_list import SubjectList
+from src.school.subject import Subject
 
 
 class MdWriter:
 	def __init__(
-		self, 
+		self,
 		filepath: str,
 		encoding: str,
 		tab_size: int,
@@ -18,10 +18,10 @@ class MdWriter:
 
 	def generate_subject_ast(
 		self,
-		subject_list: SubjectList
+		subject_list: list[Subject]
 	) -> list[MdPointNode]:
 		main_points = []
-		for subject in subject_list.subject_list:
+		for subject in subject_list:
 			subject_text = subject.name
 			subject_indent = 0
 			subject_point = MdPointNode(
@@ -40,7 +40,7 @@ class MdWriter:
 				)
 				subject_point.append_child(date_point)
 				date_point.set_parent(subject_point)
-				for daily_homework in homework.homework:
+				for daily_homework in homework.value:
 					homework_text = daily_homework
 					homework_indent = 2
 					homework_point = MdPointNode(

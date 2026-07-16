@@ -1,0 +1,123 @@
+{
+    "response": {
+        "state": 200,
+        "error": null,
+        "result": {
+            "students": {
+                "413": {
+                    "name": "413",
+                    "title": "Панышев Антон",
+                    "days": {
+                        "20260428": {
+                            "name": "20260428",
+                            "title": "Вторник",
+                            "items": {
+                                "Литература": {
+                                    "homework": {
+                                        "1": {
+                                            "id": 1,
+                                            "individual": false,
+                                            "value": "Cоветский писатель С. П. Залыгин: «И ещё одна причина… препятствовала вступлению Гоголя в область романа: Гоголь миновал женский характер во всей его глубине». Согласны ли вы с этим утверждением?"
+                                        },
+                                        "2": {
+                                            "id": 2,
+                                            "individual": false,
+                                            "value": "Cоветский писатель С. П. Залыгин: «И ещё одна причина… препятствовала вступлению Гоголя в область романа: Гоголь миновал женский характер во всей его глубине». Согласны ли вы с этим утверждением?"
+                                        }
+                                    },
+                                    "name": "Литература"
+                                },
+                                "Русский язык": {
+                                    "homework": {
+                                        "1": {
+                                            "id": 1,
+                                            "individual": false,
+                                            "value": "Без задания"
+                                        }
+                                    },
+                                    "name": "Русский язык"
+                                },
+                                "История": {
+                                    "homework": {
+                                        "1": {
+                                            "id": 1,
+                                            "individual": false,
+                                            "value": "§24 + доделать таблицу( революционное народничеством марксизм по образцу: Идеология/ кружки/ представители/ идеи)"
+                                        }
+                                    },
+                                    "files": [
+                                        {
+                                            "toid": 1,
+                                            "filename": "Презентация по истории России_ Общественное движен.zip",
+                                            "link": "https://storage13.eljur.ru/storage/7ad8c34fe25ad62a68d8da0c227f5dc8?filename=%D0%9F%D1%80%D0%B5%D0%B7%D0%B5%D0%BD%D1%82%D0%B0%D1%86%D0%B8%D1%8F+%D0%BF%D0%BE+%D0%B8%D1%81%D1%82%D0%BE%D1%80%D0%B8%D0%B8+%D0%A0%D0%BE%D1%81%D1%81%D0%B8%D0%B8_+%D0%9E%D0%B1%D1%89%D0%B5%D1%81%D1%82%D0%B2%D0%B5%D0%BD%D0%BD%D0%BE%D0%B5+%D0%B4%D0%B2%D0%B8%D0%B6%D0%B5%D0%BD.zip&domain=familyclasses"
+                                        }
+                                    ],
+                                    "name": "История"
+                                },
+                                "Англ. яз.": {
+                                    "homework": {
+                                        "1": {
+                                            "id": 1,
+                                            "individual": false,
+                                            "value": "упр 3 стр 126,упр 5 стр 127, упр 11 стр 111"
+                                        },
+                                        "2": {
+                                            "id": 2,
+                                            "individual": false,
+                                            "value": "См. приложения"
+                                        }
+                                    },
+                                    "files": [
+                                        {
+                                            "toid": 2,
+                                            "filename": "59341a1aa94624497fcd9648f6f28e7e.jpg",
+                                            "link": "https://storage13.eljur.ru/storage/88654db0b4389076abc9928cd30af5f7?filename=59341a1aa94624497fcd9648f6f28e7e.jpg&domain=familyclasses"
+                                        },
+                                        {
+                                            "toid": 2,
+                                            "filename": "3fc655e7ce9366f62cd0925e7be52b61.jpg",
+                                            "link": "https://storage13.eljur.ru/storage/608130e8c0c7815309ad53f6af63efd3?filename=3fc655e7ce9366f62cd0925e7be52b61.jpg&domain=familyclasses"
+                                        },
+                                        {
+                                            "toid": 2,
+                                            "filename": "5c56790d6b7cdb7df7efd529a5068ce2.jpg",
+                                            "link": "https://storage13.eljur.ru/storage/a700e9351f5fd27f9dcf22b15649cd17?filename=5c56790d6b7cdb7df7efd529a5068ce2.jpg&domain=familyclasses"
+                                        },
+                                        {
+                                            "toid": 2,
+                                            "filename": "c5b6912e29f4a15b9ec7c1af2e1af332.jpg",
+                                            "link": "https://storage13.eljur.ru/storage/b42c8e374225fe6153f8f73ba7dc806c?filename=c5b6912e29f4a15b9ec7c1af2e1af332.jpg&domain=familyclasses"
+                                        }
+                                    ],
+                                    "name": "Англ. яз."
+                                },
+                                "Биология": {
+                                    "homework": {
+                                        "1": {
+                                            "id": 1,
+                                            "individual": false,
+                                            "value": "См. приложения"
+                                        },
+                                        "2": {
+                                            "id": 2,
+                                            "individual": false,
+                                            "value": "Ответить письменно №3,4,5"
+                                        }
+                                    },
+                                    "files": [
+                                        {
+                                            "toid": 1,
+                                            "filename": "IMG_20260423_144336_edit_228722907928058.jpg",
+                                            "link": "https://storage13.eljur.ru/storage/13cfcbebb5961c00de059843e5a9d622?filename=IMG_20260423_144336_edit_228722907928058.jpg&domain=familyclasses"
+                                        }
+                                    ],
+                                    "name": "Биология"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

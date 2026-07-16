@@ -6,8 +6,8 @@ from src.md.md_point_node import MdPointNode
 class MdParser:
 	def __init__(
 		self, 
-		filepath: str, 
-		encoding: str, 
+		filepath: str,
+		encoding: str,
 		tab_size: int,
 		multiline_indent: int,
 	) -> None:
@@ -18,7 +18,7 @@ class MdParser:
 
 
 	def read(
-		self, 
+		self,
 		filepath: str | None = None, 
 		encoding: str | None = None,
 	) -> str:

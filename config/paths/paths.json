@@ -1,17 +1,28 @@
 {
 	"settings": {
 		"env": "config/.env",
-		"config": "config/config.json",
-		"eljur_cache": "config/cache/eljur_cache.json",
-		"user_hash": "config/hash/user_hash.json"
+		"config": "config/config.json"
 	},
 	"responses": {
 		"assessments": "responses/assessments.json",
 		"diary": "responses/diary.json",
-		"homework": "responses/homeworks.json",
+		"homeworks": "responses/homeworks.json",
 		"marks": "responses/marks.json",
 		"periods": "responses/periods.json",
 		"rules": "responses/rules.json",
 		"schedule": "responses/schedule.json"
+	},
+	"auxiliary": {
+		"desired_marks": "auxiliary/data/desired_marks.json",
+		"md": {
+			"homeworks": {
+				"starts_with": "auxiliary/homeworks/starts_with.md",
+				"ends_with":"auxiliary/homeworks/ends_with.md"
+			},
+			"marks": {
+				"starts_with": "auxiliary/marks/starts_with.md",
+				"ends_with":"auxiliary/marks/ends_with.md"
+			}
+		}
 	}
 }
