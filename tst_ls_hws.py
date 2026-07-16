@@ -5,6 +5,7 @@ from src.eljur.eljur_parser import EljurParser
 from src.eljur.response_writer import ResponseWriter
 from src.eljur.response_parser import ResponseParser
 from src.utils.date import Date
+from src.new_md.md_fomatter import MdFormatter
 
 
 BASE_DIR = Path(__file__).parent
@@ -21,7 +22,11 @@ RULES_PATH = BASE_DIR / 'tst_ls_hws_rules.json'
 MARKS_PATH = BASE_DIR / 'tst_ls_hws_marks.json'
 HOMEWORKS_PATH = BASE_DIR / 'tst_ls_hws_homeworks.json'
 
-RESULT_PATH = BASE_DIR / 'tst_ls_hws_result.txt'
+RESULT_PATH = BASE_DIR / 'tst_ls_hws_result_ast.txt'
+
+md_formatter = MdFormatter(
+	4,
+)
 
 cm = ConfigManager(
 	BASE_DIR,
@@ -96,7 +101,10 @@ subject_list = rp.load_homeworks(
 	subject_list,
 )
 
+subject_list_ast = md_formatter.generate_homeworks_ast(subject_list)
+md_ast = md_formatter.ast_to_md(subject_list_ast)
+
 RESULT_PATH.write_text(
-	str(subject_list),
+	str(md_ast),
 	encoding=ENCODING,
 )

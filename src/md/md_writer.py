@@ -4,7 +4,7 @@ from src.school.subject import Subject
 
 class MdWriter:
 	def __init__(
-		self, 
+		self,
 		filepath: str,
 		encoding: str,
 		tab_size: int,
@@ -40,7 +40,7 @@ class MdWriter:
 				)
 				subject_point.append_child(date_point)
 				date_point.set_parent(subject_point)
-				for daily_homework in homework.homework:
+				for daily_homework in homework.value:
 					homework_text = daily_homework
 					homework_indent = 2
 					homework_point = MdPointNode(

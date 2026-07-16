@@ -1,13 +1,13 @@
 {
 	"marks": {
 		"need": true,
-		"path": "C:/Users/anton/Documents/Main/Школьное/marks_test.md",
+		"path": "C:/Users/anton/Documents/Main/Школьное/Оценки.md",
 		"from": "12.01.2026",
 		"to": "08.03.2026"
 	},
 	"homeworks": {
 		"need": true,
-		"path": "C:/Users/anton/Documents/Main/Школьное/mdw_test.md",
+		"path": "C:/Users/anton/Documents/Main/Школьное/Домашка.md",
 		"from": "02.03.2026",
 		"to": "03.03.2026"
 	}
