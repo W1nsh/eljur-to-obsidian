@@ -1,0 +1,45 @@
+{
+	"user": {
+		"marks": {
+			"need": true,
+			"path": "C:/Users/anton/Documents/Main/Школьное/Оценки.md",
+			"date": {
+				"start": "12.01.2026",
+				"end": "08.03.2026"
+			},
+			"template": {
+				"starts_with": "config/marks/starts_with.md",
+				"ends_with": "config/marks/ends_with.md"
+			},
+			"desired": {
+				"Алгебра": 5,
+				"Русский": 5
+			}
+		},
+		"homeworks": {
+			"need": true,
+			"path": "C:/Users/anton/Documents/Main/Школьное/Домашка.md",
+			"date": {
+				"start": "02.03.2026",
+				"end": "03.03.2026"
+			},
+			"template": {
+				"starts_with": "config/homeworks/starts_with.md",
+				"ends_with": "config/homeworks/ends_with.md"
+			}
+		}
+	},
+	"program": {
+		"encoding": "utf-8",
+		"env": "config/.env",
+		"responses": {
+			"assessments": "responses/assessments.json",
+			"diary": "responses/diary.json",
+			"homeworks": "responses/homeworks.json",
+			"marks": "responses/marks.json",
+			"periods": "responses/periods.json",
+			"rules": "responses/rules.json",
+			"schedule": "responses/schedule.json"
+		}
+	}
+}

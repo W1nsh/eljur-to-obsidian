@@ -8,7 +8,7 @@ from eljur.mark_list import MarkList
 from eljur.subject import Subject
 from eljur.student import Student
 from src.eljur.period import Period
-# from src.utils.date import Date
+from src.utils.date import Date
 
 
 class ResponseParser:
@@ -51,15 +51,15 @@ class ResponseParser:
 		periods_data = self._read_json(periods)
 		student = periods_data['response']['result']['students'][0] # user id?
 		for period in student['periods']:
-			start = period.get('start')
-			end = period.get('end')
+			start = Date.to_basic(period.get('start'))
+			end = Date.to_basic(period.get('end'))
 			if (
 				not period.ambigious
 				and start
 				and end
 			):
 				formatted_period = Period(
-					start=start, # не приведены к нормальному виду
+					start=start,
 					end=end,
 				)
 				formatted_periods.append(formatted_period)
