@@ -7,9 +7,11 @@ from src.config.templates import TemplatesConfig
 from src.config.dates import DatesConfig
 from src.config.homeworks import HomeworksConfig
 from src.config.marks import MarksConfig
+from src.config.secrets.main import SecretsConfig
 from src.config.program import ProgramConfig
 from src.config.user import UserConfig
 from src.config.main import Config
+from src.config.secrets.parser import SecretsParser
 
 
 class ConfigParser:
@@ -31,7 +33,7 @@ class ConfigParser:
 	def config(
 		self,
 	) -> Config:
-		json = self._json(
+		json = self._load_json(
 			self._config,
 		)
 		user = self._user(
@@ -40,25 +42,20 @@ class ConfigParser:
 		program = self._program(
 			json['program'],
 		)
+		secrets = self._secrets(
+			program.env			
+		)
 		return Config(
 			user=user,
 			program=program,
+			secrets=secrets,
 		)
 
 
-	def _json(
+	def _load_json(
 		self,
 		file: Path,
 	) -> dict[str, Any]:
-		"""
-		Loads json file and returns it as a dictionary.
-
-		Args:
-			path (Path): Absolute path to the json file.
-
-		Returns:
-			dict[str, Any]: Content of the json file as a dictionary.
-		"""
 		json_string = file.read_text(encoding=self._encoding)
 		json_dict = json.loads(json_string)
 		return json_dict
@@ -177,3 +174,14 @@ class ConfigParser:
 			rules=rules,
 			schedule=schedule,
 		)
+
+
+	def _secrets(
+		self,
+		env: Path,
+	) -> SecretsConfig:
+		secrets_parser = SecretsParser(
+			encoding=self._encoding,
+			env=env,
+		)
+		return secrets_parser.secrets()
