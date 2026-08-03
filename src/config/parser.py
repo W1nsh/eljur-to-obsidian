@@ -23,24 +23,23 @@ class ConfigParser:
 		self,
 		encoding: str,
 		base_path: Path,
-		config: Path,
 	) -> None:
 		self._encoding = encoding
-		self._config = config
 		self._base_path = base_path
 
 
 	def config(
 		self,
+		config: Path,
 	) -> Config:
-		json = self._load_json(
-			self._config,
+		config_json = self._load_json(
+			config,
 		)
 		user = self._user(
-			json['user'],
+			config_json['user'],
 		)
 		program = self._program(
-			json['program'],
+			config_json['program'],
 		)
 		secrets = self._secrets(
 			program.env			
@@ -148,7 +147,6 @@ class ConfigParser:
 			program['responses'],
 		)
 		return ProgramConfig(
-			encoding=encoding,
 			env=env,
 			responses=responses,
 		)

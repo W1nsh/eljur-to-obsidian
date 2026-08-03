@@ -30,7 +30,6 @@
 		}
 	},
 	"program": {
-		"encoding": "utf-8",
 		"env": "config/.env",
 		"responses": {
 			"assessments": "responses/assessments.json",
