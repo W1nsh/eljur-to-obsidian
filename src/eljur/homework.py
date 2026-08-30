@@ -7,4 +7,4 @@ from eljur.homework_file import HomeworkFile
 class Homework:
 	date: str
 	value: str
-	files: list[HomeworkFile] = field(default_factory=list)
+	files: list[HomeworkFile]

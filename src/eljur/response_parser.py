@@ -37,19 +37,21 @@ class ResponseParser:
 	def load_periods(
 		self,
 		periods: Path,
+		user_id: str,
 	) -> list[Period]:
 		"""
 		Loads and formates periods data.
 
 		Args:
 			periods (Path): Path to the periods file.
+			user_id (str): User ID for correct loading periods.
 
 		Returns:
 			list[Period]: List of the periods.
 		"""
 		formatted_periods: list[Period] = []
 		periods_data = self._read_json(periods)
-		student = periods_data['response']['result']['students'][0] # user id?
+		student = periods_data['response']['result']['students'][user_id]
 		for period in student['periods']:
 			start = Date.to_basic(period.get('start'))
 			end = Date.to_basic(period.get('end'))
@@ -220,7 +222,6 @@ class ResponseParser:
 				)
 			)
 		return students_ids
-
 
 
 	def _read_json(
