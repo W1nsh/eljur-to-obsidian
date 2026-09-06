@@ -15,10 +15,10 @@ class ConfigWriter:
 	def __init__(
 		self,
 		encoding: str,
-		base_path: Path,
+		eto: Path,
 	) -> None:
 		self._encoding = encoding
-		self._base_path = base_path
+		self._eto = eto
 		self._secrets_writer = SecretsWriter(
 			encoding=encoding,
 		)
@@ -69,8 +69,8 @@ class ConfigWriter:
 						'end': config.user.marks.dates.end,
 					},
 					'template': {
-						'starts_with': config.user.marks.templates.starts_with.relative_to(self._base_path).as_posix(),
-						'ends_with': config.user.marks.templates.ends_with.relative_to(self._base_path).as_posix(),
+						'starts_with': config.user.marks.templates.starts_with.relative_to(self._eto).as_posix(),
+						'ends_with': config.user.marks.templates.ends_with.relative_to(self._eto).as_posix(),
 					},
 					'desired': config.user.marks.desired,
 				},
@@ -82,21 +82,21 @@ class ConfigWriter:
 						'end': config.user.homeworks.dates.end,
 					},
 					'template': {
-						'starts_with': config.user.homeworks.templates.starts_with.relative_to(self._base_path).as_posix(),
-						'ends_with': config.user.homeworks.templates.ends_with.relative_to(self._base_path).as_posix(),
+						'starts_with': config.user.homeworks.templates.starts_with.relative_to(self._eto).as_posix(),
+						'ends_with': config.user.homeworks.templates.ends_with.relative_to(self._eto).as_posix(),
 					},
 				},
 			},
 			'program': {
-				'env': config.program.env.relative_to(self._base_path).as_posix(),
+				'env': config.program.env.relative_to(self._eto).as_posix(),
 				'responses': {
-					'assessments': config.program.responses.assessments.relative_to(self._base_path).as_posix(),
-					'diary': config.program.responses.diary.relative_to(self._base_path).as_posix(),
-					'homeworks': config.program.responses.homeworks.relative_to(self._base_path).as_posix(),
-					'marks': config.program.responses.marks.relative_to(self._base_path).as_posix(),
-					'periods': config.program.responses.periods.relative_to(self._base_path).as_posix(),
-					'rules': config.program.responses.rules.relative_to(self._base_path).as_posix(),
-					'schedule': config.program.responses.schedule.relative_to(self._base_path).as_posix(),
+					'assessments': config.program.responses.assessments.relative_to(self._eto).as_posix(),
+					'diary': config.program.responses.diary.relative_to(self._eto).as_posix(),
+					'homeworks': config.program.responses.homeworks.relative_to(self._eto).as_posix(),
+					'marks': config.program.responses.marks.relative_to(self._eto).as_posix(),
+					'periods': config.program.responses.periods.relative_to(self._eto).as_posix(),
+					'rules': config.program.responses.rules.relative_to(self._eto).as_posix(),
+					'schedule': config.program.responses.schedule.relative_to(self._eto).as_posix(),
 				},
 			},
 		}

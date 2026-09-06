@@ -22,13 +22,13 @@ class ConfigParser:
 	def __init__(
 		self,
 		encoding: str,
-		base_path: Path,
+		eto: Path,
 	) -> None:
 		self._encoding = encoding
-		self._base_path = base_path
+		self._eto = eto
 
 
-	def config(
+	def load_config(
 		self,
 		config: Path,
 	) -> Config:
@@ -129,8 +129,8 @@ class ConfigParser:
 		self,
 		templates: dict[str, Any],
 	) -> TemplatesConfig:
-		starts_with = self._base_path / templates['starts_with']
-		ends_with = self._base_path / templates['ends_with']
+		starts_with = self._eto / templates['starts_with']
+		ends_with = self._eto / templates['ends_with']
 		return TemplatesConfig(
 			starts_with=starts_with,
 			ends_with=ends_with,
@@ -142,7 +142,7 @@ class ConfigParser:
 		program: dict[str, Any],
 	) -> ProgramConfig:
 		encoding = program['encoding']
-		env = self._base_path / program['env']
+		env = self._eto / program['env']
 		responses = self._responses(
 			program['responses'],
 		)
@@ -156,13 +156,13 @@ class ConfigParser:
 		self,
 		responses: dict[str, Any],
 	) -> ResponsesPaths:
-		assessments = self._base_path / responses['assessments']
-		diary = self._base_path / responses['diary']
-		homeworks = self._base_path / responses['homeworks']
-		marks = self._base_path / responses['marks']
-		periods = self._base_path / responses['periods']
-		rules = self._base_path / responses['rules']
-		schedule = self._base_path / responses['schedule']
+		assessments = self._eto / responses['assessments']
+		diary = self._eto / responses['diary']
+		homeworks = self._eto / responses['homeworks']
+		marks = self._eto / responses['marks']
+		periods = self._eto / responses['periods']
+		rules = self._eto / responses['rules']
+		schedule = self._eto / responses['schedule']
 		return ResponsesPaths(
 			assessments=assessments,
 			diary=diary,
