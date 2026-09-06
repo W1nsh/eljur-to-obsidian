@@ -89,4 +89,3 @@ class Date:
 		format = '%Y%m%d' if eljur_format else '%d.%m.%Y'
 		current_date = datetime.now().strftime(format)
 		return current_date
-		

@@ -2,6 +2,6 @@ from dataclasses import dataclass
 
 
 @dataclass
-class Period:
-	start: str
-	end: str
+class Student:
+	name: str
+	id: str

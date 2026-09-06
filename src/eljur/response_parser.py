@@ -2,11 +2,11 @@ import json
 from pathlib import Path
 from typing import Any
 
-from src.school.homework_file import HomeworkFile
-from src.school.homework import Homework
-from src.school.mark_list import MarkList
-from src.school.subject import Subject
-from src.eljur.eljur_user_id import EljurUserId
+from eljur.homework_file import HomeworkFile
+from eljur.homework import Homework
+from eljur.mark_list import MarkList
+from eljur.subject import Subject
+from eljur.student import Student
 from src.eljur.period import Period
 from src.utils.date import Date
 
@@ -37,22 +37,24 @@ class ResponseParser:
 	def load_periods(
 		self,
 		periods: Path,
+		user_id: str,
 	) -> list[Period]:
 		"""
 		Loads and formates periods data.
 
 		Args:
 			periods (Path): Path to the periods file.
+			user_id (str): User ID for correct loading periods.
 
 		Returns:
 			list[Period]: List of the periods.
 		"""
 		formatted_periods: list[Period] = []
 		periods_data = self._read_json(periods)
-		student = periods_data['response']['result']['students'][0]
+		student = periods_data['response']['result']['students'][user_id]
 		for period in student['periods']:
-			start = period.get('start')
-			end = period.get('end')
+			start = Date.to_basic(period.get('start'))
+			end = Date.to_basic(period.get('end'))
 			if (
 				not period.ambigious
 				and start
@@ -196,7 +198,7 @@ class ResponseParser:
 	def get_user_ids(
 		self,
 		rules: Path,
-	) -> list[EljurUserId]:
+	) -> list[Student]:
 		"""
 		Gets user pairs of the id and name.
 
@@ -204,7 +206,7 @@ class ResponseParser:
 			rules (Path): Path to the rules file.
 
 		Returns:
-			list[EljurUserId]: List of the pairs.
+			list[Student]: List of the pairs.
 		"""
 		students_ids = []
 		rules_data = self._read_json(
@@ -214,13 +216,12 @@ class ResponseParser:
 		for student_id in students:
 			student_name = students[student_id]['title']
 			students_ids.append(
-				EljurUserId(
+				Student(
 					id=student_id,
 					name=student_name,
 				)
 			)
 		return students_ids
-
 
 
 	def _read_json(

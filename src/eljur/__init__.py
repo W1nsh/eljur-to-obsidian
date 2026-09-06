@@ -1,5 +1,10 @@
-from .eljur_parser import EljurParser
-from .response_writer import ResponseWriter
+from .parser import EljurParser
 from .response_parser import ResponseParser
-from .eljur_user_id import EljurUserId
+
 from .period import Period
+from .student import Student
+
+from .homework_file import HomeworkFile
+from .homework import Homework
+from .mark_list import MarkList
+from .subject import Subject
